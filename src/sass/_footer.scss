@@ -1,106 +1,108 @@
 .footer {
-	position: relative;
-	padding-top: 6em;
-	margin-top: 6em;
-	background: linear-gradient(180deg, var(--main) 0%, var(--sub) 70%);
-	overflow: hidden;
-	@media (max-width: 767px) {
-		margin-top: 1em;
-	}
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-	}
-	small {
-		@include font-size(30, 40);
-		color: var(--gl);
-	}
-	h4 {
-		@include font-size(36, 72);
-		color: var(--gl);
-		@media (max-width: 767px) {
-			text-align: center;
-			white-space: nowrap;
-		}
-	}
-	.contacts {
-		padding: 3em 0;
-		padding-top: 15em;
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		a {
-			@include font-size(16, 38);
-			color: var(--main);
-			&:after {
-				background-color: var(--main);
-			}
-			&:hover {
-				color: var(--gl);
-				&:after {
-					background-color: var(--gl);
-				}
-			}
-		}
-		.button {
-			margin-left: 1em;
-			@include font-size(12, 30);
-			color: var(--main);
-			border-color: var(--main);
-			border-width: 5px;
-			&:hover {
-				color: var(--gl);
-				border-color: var(--gl);
-				.maskbtn {background-color: var(--gl)!important;}
-			}
-			@media (max-width: 767px) {
-				margin: 0.4em 0em;
-				margin-left: 2em;
-				width: 100%;
-				z-index: 9984;
-			}
-		}
-		@media (max-width: 767px) {
-			padding-top: 5em;
-		}
-	}
-	&-line {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		user-select: none;
-		svg {
-			position: absolute;
-			bottom: 0;
-			stroke-dashoffset: 1;
-			stroke-dasharray: 1;
-			animation: 1s ease-in-out forwards;
-		}
-		&-1 {
-			animation-delay: 0s!important;
-		}
-		&-2 {
-			animation-delay: 1s!important;
-			animation-duration: 3s!important;
-		}
-		&-3 {
-			animation-delay: 4s!important;
-			right: 0;
-		}
-		&.inView {
-			svg {
-				animation-name: inView;
-			}
-		}
-		@media (max-width: 767px) {
-			display: none;
-		}
-	}
+  position: relative;
+  padding-top: 6em;
+  margin-top: 6em;
+  background: linear-gradient(180deg, var(--main) 0%, var(--sub) 70%);
+  overflow: hidden;
+  @media (max-width: 767px) {
+    margin-top: 1em;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  small {
+    @include font-size(30, 40);
+    color: var(--gl);
+  }
+  h4 {
+    @include font-size(36, 72);
+    color: var(--gl);
+    @media (max-width: 767px) {
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
+  .contacts {
+    padding: 3em 0;
+    padding-top: 7em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      @include font-size(16, 38);
+      color: var(--main);
+      &:after {
+        background-color: var(--main);
+      }
+      &:hover {
+        color: var(--gl);
+        &:after {
+          background-color: var(--gl);
+        }
+      }
+    }
+    .button {
+      margin-left: 1em;
+      @include font-size(12, 30);
+      color: var(--main);
+      border-color: var(--main);
+      border-width: 5px;
+      &:hover {
+        color: var(--gl);
+        border-color: var(--gl);
+        .maskbtn {
+          background-color: var(--gl) !important;
+        }
+      }
+      @media (max-width: 767px) {
+        margin: 0.4em 0em;
+        margin-left: 2em;
+        width: 100%;
+        z-index: 9984;
+      }
+    }
+    @media (max-width: 767px) {
+      padding-top: 5em;
+    }
+  }
+  &-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+    svg {
+      position: absolute;
+      bottom: 0;
+      stroke-dashoffset: 1;
+      stroke-dasharray: 1;
+      animation: 1s ease-in-out forwards;
+    }
+    &-1 {
+      animation-delay: 0s !important;
+    }
+    &-2 {
+      animation-delay: 1s !important;
+      animation-duration: 3s !important;
+    }
+    &-3 {
+      animation-delay: 4s !important;
+      right: 0;
+    }
+    &.inView {
+      svg {
+        animation-name: inView;
+      }
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
 }

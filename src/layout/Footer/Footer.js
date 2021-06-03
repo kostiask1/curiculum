@@ -10,10 +10,15 @@ const Footer = () => {
           <div className="contacts">
             <a href="\">kostiask.</a>
             <div className="wrap">
-              <button className="button call-form">
+              <a
+                href="https://t.me/kostiask"
+                target="_blank"
+                rel="noreferrer"
+                className="button call-form"
+              >
                 <div className="maskbtn maskbtn-send" />
                 Напиши мне
-              </button>
+              </a>
               <a
                 className="button"
                 href="https://www.upwork.com/o/profiles/users/~01fb767ca954c799bb/"

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../layout/Footer/Footer";
 
 const Main = () => {
   return (
@@ -52,6 +53,10 @@ const Main = () => {
                 </svg>
                 <div id="colorize" className="cwrap">
                   <div className="mask" />
+                  <i
+                    className="fas fa-tint"
+                    style={{ zIndex: 999, fontSize: "32px" }}
+                  />
                 </div>
               </span>
               <p>&nbsp;&nbsp;&nbsp;&nbsp;DEVELOPER</p>
@@ -101,6 +106,7 @@ const Main = () => {
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 };

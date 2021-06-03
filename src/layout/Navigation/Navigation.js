@@ -27,8 +27,14 @@ export default function Navigation() {
           >
             Мои работы
           </Link>
-          <a className="button" target="_blanc" href="https://t.me/kostiask">
-            <div className="maskbtn maskbtn-send" />
+          <a
+            className="button"
+            target="_blanc"
+            href="https://t.me/kostiask"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fab fa-telegram-plane" />
             &nbsp;Связаться
           </a>
         </div>

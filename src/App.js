@@ -15,29 +15,27 @@ function App() {
   return (
     <>
       <Navigation />
-      <div className="container">
-        {routes.map(({ path, Component }) => (
-          <Route
-            key={path}
-            exact
-            path={path}
-            render={({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={300}
-                classNames="page"
-                unmountOnExit
-              >
-                <div className="page">
-                  <CvState>
-                    <Component {...match} />
-                  </CvState>
-                </div>
-              </CSSTransition>
-            )}
-          />
-        ))}
-      </div>
+      {routes.map(({ path, Component }) => (
+        <Route
+          key={path}
+          exact
+          path={path}
+          render={({ match }) => (
+            <CSSTransition
+              in={match != null}
+              timeout={300}
+              classNames="page"
+              unmountOnExit
+            >
+              <div className="page">
+                <CvState>
+                  <Component {...match} />
+                </CvState>
+              </div>
+            </CSSTransition>
+          )}
+        />
+      ))}
     </>
   );
 }
