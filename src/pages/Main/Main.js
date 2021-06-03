@@ -1,0 +1,106 @@
+import React from "react";
+
+const Main = () => {
+  return (
+    <>
+      <div>
+        <main id="main">
+          <div className="container">
+            <h1>
+              <span>
+                <p>FRONT - END</p>
+                <svg
+                  className="circle"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    id="curve"
+                    d="m 0 50 a 1 1 0 0 1 100 0 a 1 1 0 0 1 -100 0 z "
+                    fill="none"
+                  />
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    values="0 0 0;360 0 0"
+                    dur="6.5s"
+                    repeatCount="indefinite"
+                  />
+                  <text dy={10}>
+                    <textPath
+                      startOffset="-100%"
+                      textLength={300}
+                      fill="var(--gl)"
+                      xlinkHref="#curve"
+                    >
+                      Хей, хочу другой цвет!&nbsp;&nbsp;&nbsp;&nbsp;Зажми чтобы
+                      вернуть!
+                      <animate
+                        attributeName="startOffset"
+                        from="-100%"
+                        to="0%"
+                        begin=".2s"
+                        dur="3s"
+                        repeatCount="once"
+                        keyTimes="0; 1"
+                        keySplines=".25 .1 .4 1;"
+                        calcMode="spline"
+                        fill="freeze"
+                      />
+                    </textPath>
+                  </text>
+                </svg>
+                <div id="colorize" className="cwrap">
+                  <div className="mask" />
+                </div>
+              </span>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;DEVELOPER</p>
+            </h1>
+            <div className="row">
+              <a href="#cases" className="button">
+                <div className="maskbtn maskbtn-arrow" />
+                Посмотреть реботы
+              </a>
+              <a href="/" className="button">
+                <div className="maskbtn maskbtn-load" />
+                Мое резюме
+              </a>
+            </div>
+          </div>
+        </main>
+        <section id="info" className="info">
+          <div className="container">
+            <div className="row">
+              <div className="text">
+                <h2>Привет!</h2>
+                <b>Меня зовут Костя</b>
+                <p>
+                  Junior Front-end разработчик - люблю разрабатывать сайты,
+                  делаю их адаптивными, анимироваными и быстрыми. Способен
+                  превратить любую вашу мечту в реальность.
+                </p>
+              </div>
+              <picture className="pic">
+                <source srcSet="img/info.avif" />
+                <img src="img/info.jpg" alt="" />
+              </picture>
+            </div>
+          </div>
+        </section>
+        <section id="cases" className="cases">
+          <div className="container">
+            <h2>Мои работы</h2>
+            <div className="case-wrap">
+              <div className="case">
+                <strong>Mi Food</strong>
+                <div className="case-img" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+};
+
+export default Main;

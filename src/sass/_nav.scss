@@ -1,0 +1,104 @@
+.nav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  padding: 1em 0;
+  z-index: 9990;
+  background-color: var(--alphaMain);
+  backdrop-filter: blur(5px);
+  transition: background-color 0.4s linear;
+  will-change: background-color;
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 767px) {
+      align-items: start;
+    }
+    a {
+      @include font-size(16, 36);
+      &.active {
+        color: var(--sub);
+      }
+    }
+    .navs {
+      display: inline-flex;
+      align-items: center;
+      transition: 0.6s all;
+      .ham {
+        margin: 8px 0px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        span {
+          display: none;
+          width: 2.6em;
+          height: 0.2em;
+          margin: 0.34em 0;
+          transform-origin: 0 0;
+          background-color: var(--gl);
+          transition: all 0.4s ease;
+          @media (max-width: 767px) {
+            display: block;
+          }
+        }
+        &:hover {
+          span:nth-child(2) {
+            width: 20px;
+          }
+        }
+      }
+      a {
+        margin-left: 33px;
+        @include font-size(16, 24);
+      }
+      @media (max-width: 767px) {
+        text-align: center;
+        min-height: 40px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--gl);
+        background-color: var(--main);
+        border-radius: 5px;
+        a {
+          width: 2em;
+          height: 0;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.4s all, 0s opacity;
+        }
+        .button {
+          display: none;
+        }
+      }
+      &.active {
+        a {
+          width: auto;
+          height: auto;
+          opacity: 1;
+          padding-bottom: 4px;
+          margin: 5px;
+          margin-bottom: 8px;
+          visibility: visible;
+          transition: 0.4s all;
+        }
+        .ham {
+          transform: translateX(0.6em);
+          margin-top: 10px;
+          span:nth-child(1) {
+            transform: rotate(45deg) translate(1px, -1px);
+          }
+          span:nth-child(2) {
+            transform: scaleX(0);
+          }
+          span:nth-child(3) {
+            transform: rotate(-45deg) translate(1px, 0);
+          }
+        }
+      }
+    }
+  }
+}

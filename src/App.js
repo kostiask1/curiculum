@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, withRouter } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import { CvState } from "./context/catalog/cv-state";
+import Navigation from "./layout/Navigation/Navigation";
+import Main from "./pages/Main/Main";
+import Post from "./pages/Post/Post";
+
+const routes = [
+  { path: "/", Component: Main },
+  { path: "/post/:", Component: Post },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigation />
+      <div className="container">
+        {routes.map(({ path, Component }) => (
+          <CvState>
+            <Route
+              key={path}
+              exact
+              path={path}
+              render={({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={300}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Component {...match} />
+                  </div>
+                </CSSTransition>
+              )}
+            />
+          </CvState>
+        ))}
+      </div>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);

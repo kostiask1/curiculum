@@ -1,3 +1,14 @@
+@import "./sass/_keyframes.scss";
+
+@import "./sass/_base.scss";
+@import "./sass/_nav.scss";
+@import "./sass/_main.scss";
+@import "./sass/_info.scss";
+@import "./sass/_cases.scss";
+@import "./sass/_footer.scss";
+
+@import "./sass/_post.scss";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
