@@ -81,8 +81,10 @@ const Main = () => {
                 </p>
               </div>
               <picture className="pic">
-                <source srcSet="img/info.avif" />
-                <img src="img/info.jpg" alt="" />
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/ciriculum-d98e2.appspot.com/o/posts%2Finfo.jpg?alt=media&token=2599ecaf-e903-4bdc-8191-8a97f8f4d506"
+                  alt=""
+                />
               </picture>
             </div>
           </div>

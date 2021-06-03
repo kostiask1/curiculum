@@ -2,13 +2,10 @@ import firebase from "firebase";
 import "firebase/storage";
 
 export const app = firebase.initializeApp({
-  projectId: "e-shop-d051e",
-  appId: "1:855311977355:web:9a28f03d4a04e34feb3d8e",
-  databaseURL:
-    "https://e-shop-d051e-default-rtdb.europe-west1.firebasedatabase.app",
-  storageBucket: "e-shop-d051e.appspot.com",
-  locationId: "europe-central2",
-  apiKey: "AIzaSyACbkEzWwbaNw9RYxCQxaMygVljKavpdxg",
-  authDomain: "e-shop-d051e.firebaseapp.com",
-  messagingSenderId: "855311977355",
+  apiKey: "AIzaSyDZb6-vNve77Gp6h6-ECK_vDD9_yTfnqO0",
+  authDomain: "ciriculum-d98e2.firebaseapp.com",
+  projectId: "ciriculum-d98e2",
+  storageBucket: "ciriculum-d98e2.appspot.com",
+  messagingSenderId: "500566620667",
+  appId: "1:500566620667:web:edd7817b22827f90fef35e",
 });

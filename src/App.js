@@ -17,25 +17,25 @@ function App() {
       <Navigation />
       <div className="container">
         {routes.map(({ path, Component }) => (
-          <CvState>
-            <Route
-              key={path}
-              exact
-              path={path}
-              render={({ match }) => (
-                <CSSTransition
-                  in={match != null}
-                  timeout={300}
-                  classNames="page"
-                  unmountOnExit
-                >
-                  <div className="page">
+          <Route
+            key={path}
+            exact
+            path={path}
+            render={({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={300}
+                classNames="page"
+                unmountOnExit
+              >
+                <div className="page">
+                  <CvState>
                     <Component {...match} />
-                  </div>
-                </CSSTransition>
-              )}
-            />
-          </CvState>
+                  </CvState>
+                </div>
+              </CSSTransition>
+            )}
+          />
         ))}
       </div>
     </>
