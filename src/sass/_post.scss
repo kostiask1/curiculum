@@ -16,6 +16,8 @@
     background-color: gray;
     overflow: hidden;
     margin-top: 2em;
+    opacity: 0;
+    animation: 1s 0.4s fadeIn linear forwards;
     transition: 1s height linear;
     img,
     source {

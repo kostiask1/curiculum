@@ -6,6 +6,8 @@
   position: absolute;
   left: 15px;
   right: 15px;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .page-enter {
@@ -29,8 +31,13 @@
   transform: scale(0.9);
   transition: opacity 800ms, transform 800ms;
 }
-
+.fadeIn {
+  animation: .4s 0.4s fadeIn linear forwards;
+}
 @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }

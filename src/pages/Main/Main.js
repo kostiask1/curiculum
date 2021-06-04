@@ -9,14 +9,14 @@ const Main = (props) => {
   //console.log(props);
   useEffect(() => {
     find();
-    getColor();
+    //getColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(palette);
 
   return (
     <>
-      <main id="main">
+      <main id="main fadeIn">
         <div className="container">
           <h1>
             <span>
