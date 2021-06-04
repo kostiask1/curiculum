@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-scroll";
+import { Link as RLink } from "react-router-dom";
+import { cvContext } from "../../context/catalog/cv-context";
 
 export default function Navigation() {
+  const { find, data } = useContext(cvContext);
+
+  useEffect(() => {
+    find();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  //console.log(data);
+
   return (
     <nav className="nav">
       <div className="container">
-        <a href="\">kostiask</a>
+        <RLink to="/">kostiask</RLink>
         <div className="navs">
           <div className="ham">
             <span />
@@ -18,15 +29,17 @@ export default function Navigation() {
           <Link to="info" spy={true} smooth={true} offset={-100} duration={500}>
             Обо мне
           </Link>
-          <Link
-            to="cases"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-          >
-            Мои работы
-          </Link>
+          {data && data.length !== 0 ? (
+            <Link
+              to="cases"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              Мои работы
+            </Link>
+          ) : null}
           <a
             className="button"
             target="_blanc"

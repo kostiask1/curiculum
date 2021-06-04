@@ -8,33 +8,32 @@ import Post from "./pages/Post/Post";
 
 const routes = [
   { path: "/", Component: Main },
-  { path: "/post/:", Component: Post },
+  { path: "/post/:post", Component: Post },
 ];
 
 function App() {
   return (
     <>
-      <Navigation />
+      <CvState>
+        <Navigation />
+      </CvState>
       {routes.map(({ path, Component }) => (
-        <Route
-          key={path}
-          exact
-          path={path}
-          render={({ match }) => (
+        <Route path={path} exact key={path}>
+          {({ match }) => (
             <CSSTransition
               in={match != null}
               timeout={300}
               classNames="page"
               unmountOnExit
             >
-              <div className="page">
-                <CvState>
+              <CvState>
+                <div className="page">
                   <Component {...match} />
-                </CvState>
-              </div>
+                </div>
+              </CvState>
             </CSSTransition>
           )}
-        />
+        </Route>
       ))}
     </>
   );

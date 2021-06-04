@@ -92,7 +92,7 @@ main {
     user-select: none;
     display: flex;
     flex-direction: column;
-    margin-top: 0.5em;
+    margin-top: clamp(160px, 7vh, 400px);
     margin-left: -0.07em;
     color: var(--gl);
     @include font-size(46, 200);
