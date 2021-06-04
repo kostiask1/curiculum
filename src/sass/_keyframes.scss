@@ -32,7 +32,7 @@
   transition: opacity 800ms, transform 800ms;
 }
 .fadeIn {
-  animation: .4s 0.4s fadeIn linear forwards;
+  animation: 0.3s 0.3s fadeIn ease-in-out forwards;
 }
 @keyframes fadeIn {
   0% {

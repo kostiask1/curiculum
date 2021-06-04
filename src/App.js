@@ -27,7 +27,7 @@ function App() {
               unmountOnExit
             >
               <CvState>
-                <div className="page">
+                <div id="page" className="page">
                   <Component {...match} />
                 </div>
               </CvState>

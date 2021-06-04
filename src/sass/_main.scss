@@ -1,6 +1,7 @@
 main {
   height: 100vh;
   display: grid;
+  opacity: 0;
   align-content: center;
   @media (max-width: 991px) {
     height: auto;

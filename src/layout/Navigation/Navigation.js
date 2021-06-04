@@ -14,7 +14,7 @@ export default function Navigation() {
   //console.log(data);
 
   return (
-    <nav className="nav">
+    <nav className="nav fadeIn">
       <div className="container">
         <RLink to="/">kostiask</RLink>
         <div className="navs">
@@ -23,10 +23,24 @@ export default function Navigation() {
             <span />
             <span />
           </div>
-          <Link to="main" spy={true} smooth={true} offset={-100} duration={500}>
+          <Link
+            to="main"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            containerId="page"
+          >
             Главная
           </Link>
-          <Link to="info" spy={true} smooth={true} offset={-100} duration={500}>
+          <Link
+            to="info"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            containerId="page"
+          >
             Обо мне
           </Link>
           {data && data.length !== 0 ? (
@@ -36,6 +50,7 @@ export default function Navigation() {
               smooth={true}
               offset={-100}
               duration={500}
+              containerId="page"
             >
               Мои работы
             </Link>

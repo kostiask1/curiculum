@@ -16,7 +16,7 @@ const Post = (props) => {
     const stack = data.stack.split(",");
     return (
       <>
-        <section id="post-1" className="post">
+        <section className="post fadeIn">
           <div className="container">
             <span className="name">{title}</span>
             <picture className="img-wrap">

@@ -16,7 +16,7 @@ const Main = (props) => {
 
   return (
     <>
-      <main id="main fadeIn">
+      <main id="main" className="fadeIn">
         <div className="container">
           <h1>
             <span>

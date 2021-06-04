@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
           <small>Понравилось?</small>
           <h4>Давай поговорим!</h4>
           <div className="contacts">
-            <a href="\">kostiask.</a>
+            <RLink to="/">kostiask.</RLink>
             <div className="wrap">
               <a
                 href="https://t.me/kostiask"
