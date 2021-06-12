@@ -5,6 +5,16 @@ const Footer = () => {
   return (
     <>
       <footer className="footer" id="contacts">
+        <svg className="footer-bg" width="100%" height="100%">
+          <ellipse
+            cx="50%"
+            cy="75%"
+            rx="70%"
+            ry="75%"
+            style={{ fill: "var(--sub)", stroke: "purple", strokeWidth: 2 }}
+          />
+        </svg>
+
         <div className="container">
           <small>Понравилось?</small>
           <h4>Давай поговорим!</h4>

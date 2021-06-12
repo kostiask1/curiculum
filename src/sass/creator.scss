@@ -1,0 +1,37 @@
+.creator {
+  .wrap {
+    margin: 0 auto;
+    margin-top: 7em;
+    width: 900px;
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .title {
+    margin-bottom: 3em;
+  }
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+  }
+  form {
+    width: 300px;
+  }
+  #page {
+    .cases {
+      margin-top: 0;
+    }
+    .case {
+      margin-top: 0;
+      flex-basis: 95%;
+    }
+    .case-wrap {
+      justify-content: center;
+    }
+  }
+}

@@ -12,7 +12,6 @@ const Main = (props) => {
     //getColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(palette);
 
   return (
     <>
@@ -45,8 +44,7 @@ const Main = (props) => {
                     fill="var(--gl)"
                     xlinkHref="#curve"
                   >
-                    Хей, хочу другой цвет!&nbsp;&nbsp;&nbsp;&nbsp;Зажми чтобы
-                    вернуть!
+                    HIRE ME! HIRE ME! HIRE ME!
                     <animate
                       attributeName="startOffset"
                       from="-100%"
@@ -64,17 +62,24 @@ const Main = (props) => {
               </svg>
               <div id="colorize" className="cwrap">
                 <div className="mask" />
-                <i
-                  className="fas fa-tint"
-                  style={{ zIndex: 999, fontSize: "32px" }}
-                />
+                {/* <i
+                  className="fas fa-cog"
+                  style={{ zIndex: 999, fontSize: "52px" }}
+                /> */}
+                <img src="/images/cog.png" alt="" className="rotate" />
               </div>
             </span>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;DEVELOPER</p>
           </h1>
           <div className="row">
             {data && data.length !== 0 ? (
-              <Link to="cases" smooth={true} duration={500} className="button">
+              <Link
+                to="cases"
+                smooth={true}
+                duration={500}
+                containerId="page"
+                className="button"
+              >
                 <div className="maskbtn maskbtn-arrow" />
                 Посмотреть реботы
               </Link>

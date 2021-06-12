@@ -20,7 +20,7 @@ const Post = (props) => {
           <div className="container">
             <span className="name">{title}</span>
             <picture className="img-wrap">
-              <img src={fullImage} alt="" />
+              <img src={fullImage} className="delayed fadeIn" alt="" />
             </picture>
             {stack && stack.length !== 0 ? (
               <div className="stack">

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-scroll";
-import { Link as RLink } from "react-router-dom";
+import { Link as RLink, useLocation } from "react-router-dom";
 import { cvContext } from "../../context/catalog/cv-context";
 
 export default function Navigation() {
@@ -11,7 +11,8 @@ export default function Navigation() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //console.log(data);
+  let location = useLocation();
+  console.log(location);
 
   return (
     <nav className="nav fadeIn">
@@ -23,38 +24,44 @@ export default function Navigation() {
             <span />
             <span />
           </div>
-          <Link
-            to="main"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            containerId="page"
-          >
-            Главная
-          </Link>
-          <Link
-            to="info"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            containerId="page"
-          >
-            Обо мне
-          </Link>
-          {data && data.length !== 0 ? (
-            <Link
-              to="cases"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              containerId="page"
-            >
-              Мои работы
-            </Link>
-          ) : null}
+          {location.pathname.includes("/post/") ? (
+            <RLink to="/">Главная</RLink>
+          ) : (
+            <>
+              <Link
+                to="main"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                containerId="page"
+              >
+                Главная
+              </Link>
+              <Link
+                to="info"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                containerId="page"
+              >
+                Обо мне
+              </Link>
+              {data && data.length !== 0 ? (
+                <Link
+                  to="cases"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  containerId="page"
+                >
+                  Мои работы
+                </Link>
+              ) : null}
+            </>
+          )}
           <a
             className="button"
             target="_blanc"
