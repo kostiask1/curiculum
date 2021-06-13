@@ -3,15 +3,23 @@ import PostPreview from "../../components/PostPreview/PostPreview";
 import { cvContext } from "../../context/catalog/cv-context";
 import Footer from "../../layout/Footer/Footer";
 import { Link } from "react-scroll";
+import Palette from "../../components/Palette/Palette";
 
-const Main = (props) => {
-  const { find, data, getColor, palette } = useContext(cvContext);
-  //console.log(props);
+const Main = () => {
+  const { find, data } = useContext(cvContext);
   useEffect(() => {
     find();
-    //getColor();
+    Palette();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  let newData = data.reduce(
+    (result, value, index, sourceArray) =>
+      index % 2 === 0
+        ? [...result, sourceArray.slice(index, index + 2)]
+        : result,
+    []
+  );
 
   return (
     <>
@@ -44,7 +52,7 @@ const Main = (props) => {
                     fill="var(--gl)"
                     xlinkHref="#curve"
                   >
-                    HIRE ME! HIRE ME! HIRE ME!
+                    Click on me to change palette!!!
                     <animate
                       attributeName="startOffset"
                       from="-100%"
@@ -60,13 +68,13 @@ const Main = (props) => {
                   </textPath>
                 </text>
               </svg>
-              <div id="colorize" className="cwrap">
+              <div
+                id="colorize"
+                className="cwrap"
+                onClick={() => Palette(true)}
+              >
                 <div className="mask" />
-                {/* <i
-                  className="fas fa-cog"
-                  style={{ zIndex: 999, fontSize: "52px" }}
-                /> */}
-                <img src="/images/cog.png" alt="" className="rotate" />
+                <img src="/images/drop.png" alt="" className="drop" />
               </div>
             </span>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;DEVELOPER</p>
@@ -81,12 +89,18 @@ const Main = (props) => {
                 className="button"
               >
                 <div className="maskbtn maskbtn-arrow" />
-                Посмотреть реботы
+                View works
               </Link>
             ) : null}
-            <a href="/" className="button">
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/ciriculum-d98e2.appspot.com/o/CV%2FCV.pdf?alt=media&token=040dfadb-f1f3-4566-9db3-6a4815904db5"
+              className="button"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Kanshyn CV"
+            >
               <div className="maskbtn maskbtn-load" />
-              Мое резюме
+              My CV
             </a>
           </div>
         </div>
@@ -95,12 +109,12 @@ const Main = (props) => {
         <div className="container">
           <div className="row">
             <div className="text">
-              <h2>Привет!</h2>
-              <b>Меня зовут Костя</b>
+              <h2>Hi!</h2>
+              <b>My name is Konstantine</b>
               <p>
-                Junior Front-end разработчик - люблю разрабатывать сайты, делаю
-                их адаптивными, анимироваными и быстрыми. Способен превратить
-                любую вашу мечту в реальность.
+                Junior Front-end developer - I love developing websites, making
+                them responsive, animated and fast. Able to turn any of your
+                dreams into reality.
               </p>
             </div>
             <picture className="pic">
@@ -115,17 +129,19 @@ const Main = (props) => {
       {data && data.length !== 0 ? (
         <section id="cases" className="cases">
           <div className="container">
-            <h2>Мои работы</h2>
-            <div className="case-wrap">
-              {data.map((post) => (
-                <PostPreview
-                  image={post.image}
-                  title={post.title}
-                  link={post.title}
-                  key={post.title}
-                />
-              ))}
-            </div>
+            <h2>My works</h2>
+            {newData.map((chunk) => (
+              <div className="case-wrap" key={Math.random() * 99}>
+                {chunk.map((post) => (
+                  <PostPreview
+                    image={post.image}
+                    title={post.title}
+                    link={post.title}
+                    key={post.title}
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </section>
       ) : null}

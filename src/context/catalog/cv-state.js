@@ -2,15 +2,12 @@ import React, { useReducer } from "react";
 import { cvReducer } from "./cv-reducer";
 import { cvContext } from "./cv-context";
 import { app } from "../../base";
-import axios from "axios";
 const db = app.firestore();
 const RESPONSE = "RESPONSE";
-const COLORS = "COLORS";
 
 export const CvState = ({ children }) => {
   const initialState = {
     data: [],
-    palette: [],
   };
 
   const [state, dispatch] = useReducer(cvReducer, initialState);
@@ -56,17 +53,7 @@ export const CvState = ({ children }) => {
     }
   };
 
-  const getColor = async (color) => {
-    let request =
-      await axios.get(`http://thecolorapi.com/id)`);
-    if (color) {
-      request = await axios.get(`http://thecolorapi.com/id?${color}`);
-    }
-    console.log(request);
-    dispatch({ type: COLORS, payload: [] });
-  };
-
-  const { data, palette } = state;
+  const { data } = state;
 
   return (
     <cvContext.Provider
@@ -74,7 +61,6 @@ export const CvState = ({ children }) => {
         find,
         data,
         findWithTitle,
-        getColor,
       }}
     >
       {children}

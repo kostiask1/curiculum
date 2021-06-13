@@ -2,22 +2,24 @@ import React from "react";
 import { Link as RLink } from "react-router-dom";
 
 const Footer = () => {
+  let screenWidth = document.documentElement.clientWidth;
   return (
     <>
       <footer className="footer" id="contacts">
         <svg className="footer-bg" width="100%" height="100%">
-          <ellipse
-            cx="50%"
-            cy="75%"
-            rx="70%"
-            ry="75%"
-            style={{ fill: "var(--sub)", stroke: "purple", strokeWidth: 2 }}
+          <path
+            d={`m -50 101 a 10 -1 0 0 1 ${screenWidth + 100} 0`}
+            fill="var(--alphaSub)"
           />
         </svg>
 
         <div className="container">
-          <small>Понравилось?</small>
-          <h4>Давай поговорим!</h4>
+          {screenWidth > 767 ? (
+            <>
+              <small>Liked it?</small>
+              <h4>Let's talk!</h4>
+            </>
+          ) : null}
           <div className="contacts">
             <RLink to="/">kostiask.</RLink>
             <div className="wrap">
@@ -28,14 +30,15 @@ const Footer = () => {
                 className="button call-form"
               >
                 <div className="maskbtn maskbtn-send" />
-                Напиши мне
+                <i className="fab fa-telegram-plane" />
+                &nbsp;Text me
               </a>
               <a
                 className="button"
                 href="https://www.upwork.com/o/profiles/users/~01fb767ca954c799bb/"
               >
                 <div className="maskbtn maskbtn-load" />
-                Мое резюме
+                My CV
               </a>
             </div>
           </div>

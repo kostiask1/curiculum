@@ -12,7 +12,7 @@
 
 .page-enter {
   opacity: 0;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .page-enter-active {
@@ -37,11 +37,10 @@
 .delayed {
   animation-delay: 0.6s !important;
 }
-.rotate {
+.drop {
   width: 50px;
   z-index: 9999;
   filter: brightness(0%) invert(100%);
-  animation: 5s rotate linear infinite;
 }
 @keyframes fadeIn {
   0% {
@@ -75,22 +74,6 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-  }
-}
-@keyframes leave {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-@keyframes leavel {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
   }
 }
 @keyframes inView {

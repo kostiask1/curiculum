@@ -1,14 +1,18 @@
 .footer {
   position: relative;
   margin-top: 12em;
-  background: var(--sub);
+  padding-bottom: 1em;
+  background: var(--alphaSub);
   @media (max-width: 767px) {
-    margin-top: 1em;
+    margin-top: 6em;
   }
   .footer-bg {
+    overflow: hidden;
     z-index: 0;
     position: absolute;
-    top: -30%;
+    top: 0%;
+    height: 100px;
+    transform: translateY(-100%);
   }
   .container {
     display: flex;
@@ -18,11 +22,11 @@
   }
   small {
     @include font-size(30, 40);
-    color: var(--gl);
+    color: var(--main);
   }
   h4 {
     @include font-size(36, 72);
-    color: var(--gl);
+    color: var(--main);
     @media (max-width: 767px) {
       text-align: center;
       white-space: nowrap;
@@ -64,13 +68,12 @@
       }
       @media (max-width: 767px) {
         margin: 0.4em 0em;
-        margin-left: 2em;
         width: 100%;
         z-index: 9984;
       }
     }
     @media (max-width: 767px) {
-      padding-top: 5em;
+      padding-top: 1em;
     }
   }
   &-line {
@@ -79,6 +82,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     pointer-events: none;
     user-select: none;
     svg {

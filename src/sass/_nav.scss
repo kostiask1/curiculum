@@ -27,16 +27,16 @@
       align-items: center;
       transition: 0.6s all;
       .ham {
-        margin: 8px 0px;
+        margin: 5px 0px;
         display: flex;
         flex-direction: column;
         text-align: center;
         align-items: center;
         span {
           display: none;
-          width: 2.6em;
-          height: 0.2em;
-          margin: 0.34em 0;
+          width: 2em;
+          height: 0.1em;
+          margin: 0.17em 0;
           transform-origin: 0 0;
           background-color: var(--gl);
           transition: all 0.4s ease;
@@ -44,15 +44,13 @@
             display: block;
           }
         }
-        &:hover {
-          span:nth-child(2) {
-            width: 20px;
-          }
-        }
       }
       a {
         margin-left: 33px;
         @include font-size(16, 24);
+        &.active:after {
+          background-color: var(--sub);
+        }
       }
       @media (max-width: 767px) {
         text-align: center;
@@ -64,7 +62,7 @@
         background-color: var(--main);
         border-radius: 5px;
         a {
-          width: 2em;
+          width: 0.8em;
           height: 0;
           opacity: 0;
           visibility: hidden;
@@ -76,7 +74,7 @@
       }
       &.active {
         a {
-          width: auto;
+          width: 4em;
           height: auto;
           opacity: 1;
           padding-bottom: 4px;
@@ -89,13 +87,13 @@
           transform: translateX(0.6em);
           margin-top: 10px;
           span:nth-child(1) {
-            transform: rotate(45deg) translate(1px, -1px);
+            transform: rotate(45deg) translate(-3px, 0px);
           }
           span:nth-child(2) {
             transform: scaleX(0);
           }
           span:nth-child(3) {
-            transform: rotate(-45deg) translate(1px, 0);
+            transform: rotate(-45deg) translate(-5px, 1px);
           }
         }
       }
