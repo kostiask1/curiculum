@@ -10,6 +10,8 @@
         color: var(--sub);
     }
     .img-wrap {
+        border: 5px solid var(--sub);
+        border-radius: 8px;
         display: block;
         width: 100%;
         min-height: 600px;
