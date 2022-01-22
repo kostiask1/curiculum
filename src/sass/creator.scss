@@ -1,8 +1,7 @@
 .creator {
     .wrap {
-        margin: 0 auto;
+        margin: 0 1em;
         margin-top: 7em;
-        width: 900px;
     }
 
     form {
@@ -49,6 +48,9 @@
         }
     }
     .technologies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0.3em 1.4em;
         div {
             display: flex;
             align-items: center;
@@ -60,22 +62,29 @@
             }
             label,
             input {
-                margin-bottom: 12px;
+                margin-bottom: 0;
+                line-height: 1;
             }
         }
     }
-    .fullimage {
+    .block {
+        margin: 0px 1em;
+    }
+    .oneliner {
         display: flex;
         align-items: center;
         justify-content: center;
         input,
-        button {
+        button,
+        label {
             display: inline-block;
             height: 3em;
             border-width: 1px;
             font-size: 1em;
-            padding: 1em;
+            padding: 0.4em;
             border-radius: 0px;
+            margin: 0;
+            white-space: nowrap;
         }
     }
     .img-wrap {

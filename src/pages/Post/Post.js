@@ -2,41 +2,51 @@ import React, { useEffect, useContext } from "react"
 import Palette from "../../components/Palette/Palette"
 import { cvContext } from "../../context/catalog/cv-context"
 import Footer from "../../layout/Footer/Footer"
-import { NavLink } from "react-router-dom"
 
 const Post = (props) => {
-    const { findWithTitle, data } = useContext(cvContext)
+    const { getPostById, data } = useContext(cvContext)
 
     useEffect(() => {
-        findWithTitle(props.params.post)
+        getPostById(props.params.post)
         Palette()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (data && data.length !== 0) {
-        const { imagesArray, title, description, stack } = data
+        const { imagesArray, title, description, stack, link } = data
         return (
             <>
                 <section className="post fadeIn">
-                    {props?.params?.post ? (
-                        <NavLink to={"/create/" + props.params.post}>
-                            Edit
-                        </NavLink>
-                    ) : null}
                     <div className="container">
                         <span className="name">{title}</span>
-                        <div className="image-carousel">
+                        {link ? (
+                            <a
+                                className="liveurl"
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Live ->
+                            </a>
+                        ) : null}
+
+                        <div className="description">{description}</div>
+                        <div
+                            className={
+                                imagesArray.length > 1 ? "image-carousel" : null
+                            }
+                            dir="ltr"
+                        >
                             {imagesArray.map((img, index) => (
-                                <picture key={index} className="img-wrap">
+                                <div key={index} className="img-wrap">
                                     <img
                                         className="delayed fadeIn"
                                         src={img}
                                         alt={img}
                                     />
-                                </picture>
+                                </div>
                             ))}
                         </div>
-                        <div className="description">{description}</div>
                         {stack && stack.length !== 0 ? (
                             <div className="stack">
                                 <span>Stack of used technologies:</span>

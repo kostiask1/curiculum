@@ -12,12 +12,15 @@ export const CvState = ({ children }) => {
 
     const [state, dispatch] = useReducer(cvReducer, initialState)
 
-    const findWithTitle = async (title) => {
-        if (!title) return dispatch({ type: RESPONSE, payload: [] })
+    const getPostById = async (id) => {
+        if (!id) return dispatch({ type: RESPONSE, payload: [] })
         let payload = []
         try {
             const promise = Promise.resolve(
-                db.collection("All").where("title", "==", title).get()
+                db
+                    .collection("All")
+                    .where("id", "==", +id)
+                    .get()
             )
             promise.then((item) => {
                 payload = item.docs[0].data()
@@ -61,7 +64,7 @@ export const CvState = ({ children }) => {
             value={{
                 find,
                 data,
-                findWithTitle,
+                getPostById,
             }}
         >
             {children}

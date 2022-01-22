@@ -157,6 +157,7 @@ a.undelined {
 }
 button,
 .btn-outline {
+    display: inline-block;
     text-align: center;
     color: var(--gl);
     font-weight: 600;
@@ -501,5 +502,7 @@ button,
     }
 }
 .description {
-    white-space: pre-line;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    white-space: break-spaces;
 }

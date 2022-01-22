@@ -1,18 +1,21 @@
 import React, { useState, useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { app } from "../../base"
 import { cvContext } from "../../context/catalog/cv-context"
 import "../../sass/creator.scss"
 const db = app.firestore()
 
 const Creator = (props) => {
-    const { findWithTitle, data } = useContext(cvContext)
+    const { getPostById, data } = useContext(cvContext)
     const [title, setTitle] = useState("")
+    const [link, setLink] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
     const [imagesArray, setImagesArray] = useState([""])
     const [stack, setStack] = useState("")
     const [id, setId] = useState(new Date().getTime())
     const [order, setOrder] = useState(0)
+    const history = useHistory()
 
     const technologies = [
         "Responsive markup",
@@ -28,16 +31,16 @@ const Creator = (props) => {
     ]
 
     useEffect(() => {
-        findWithTitle(props.params.post)
+        getPostById(props.params.post)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         if (data.hasOwnProperty("title")) {
-            console.log(data)
             setTitle(data.title ?? "")
             setImage(data.imagePreview ?? "")
             setImagesArray(data.imagesArray ?? [""])
+            setLink(data.link ?? "")
             setDescription(data.description ?? "")
             setStack(data.stack ?? [])
             setId(data.id ?? new Date().getTime())
@@ -53,6 +56,7 @@ const Creator = (props) => {
         setImagesArray([""])
         setDescription("")
         setStack("")
+        setLink("")
         setOrder(0)
     }
 
@@ -66,12 +70,17 @@ const Creator = (props) => {
             stack,
             id,
             order,
+            link,
         }
-        console.log(data)
         db.collection("All")
-            .doc(data.id)
+            .doc(`${data.id}`)
             .set(data)
-            .then(() => clearInputs())
+            .then(() => {
+                if (data.id) {
+                    history.push("/post/" + data.id)
+                }
+                clearInputs()
+            })
     }
 
     const handleTitle = (e) => {
@@ -82,7 +91,6 @@ const Creator = (props) => {
     }
 
     const loadImages = async (e, type) => {
-        console.log(e)
         try {
             let files = Array.from(e)
             let links = []
@@ -110,17 +118,21 @@ const Creator = (props) => {
             console.error(err)
         }
     }
-    const handleImageSet = (e, value, index) => {
+    const handleImageSet = (e, value, img) => {
         e.preventDefault()
         if (value === "delete") {
             setImagesArray((prevArray) =>
-                prevArray.splice(prevArray.splice(index, 1))
+                prevArray.splice(prevArray.splice(prevArray.indexOf(img), 1))
             )
+            const storageRef = app.storage()
+            return storageRef.refFromURL(img).delete(img)
         } else if (value === "add") {
-            setImagesArray((prevArray) => [...prevArray, ""])
+            return setImagesArray((prevArray) => [...prevArray, ""])
         } else {
             setImagesArray((prevArray) =>
-                prevArray.splice(prevArray.splice(index, 1, value))
+                prevArray.splice(
+                    prevArray.splice(prevArray.indexOf(img), 1, value)
+                )
             )
         }
     }
@@ -134,7 +146,6 @@ const Creator = (props) => {
             stackClone.push(tech)
             setStack(stackClone)
         }
-        console.log(stack)
     }
     return (
         <div className="creator">
@@ -159,6 +170,18 @@ const Creator = (props) => {
                                         />
                                     </div>
                                     <div>
+                                        <label>Item link</label>
+                                        <input
+                                            type="text"
+                                            name="link"
+                                            value={link}
+                                            placeholder="Item link"
+                                            onChange={(e) =>
+                                                setLink(e.target.value)
+                                            }
+                                        />
+                                    </div>
+                                    <div>
                                         <label>Item description</label>
                                         <textarea
                                             type="text"
@@ -173,38 +196,39 @@ const Creator = (props) => {
                                         />
                                     </div>
                                     <div>
-                                        <label
-                                            className="btn-outline"
-                                            htmlFor="file"
-                                        >
-                                            Load preview image
-                                        </label>
-                                        <input
-                                            style={{ display: "none" }}
-                                            type="file"
-                                            id="file"
-                                            name="file"
-                                            onChange={(e) =>
-                                                loadImages(
-                                                    e.target.files,
-                                                    "preview"
-                                                )
-                                            }
-                                        />
-                                    </div>
-                                    <div>
                                         <label>Preview Image</label>
-                                        <input
-                                            type="text"
-                                            name="image"
-                                            value={image}
-                                            placeholder="Preview Image"
-                                            onChange={(e) =>
-                                                setImage(e.target.value)
-                                            }
-                                        />
+                                        <div className="oneliner">
+                                            <input
+                                                type="text"
+                                                name="image"
+                                                value={image}
+                                                placeholder="Preview Image"
+                                                onChange={(e) =>
+                                                    setImage(e.target.value)
+                                                }
+                                            />
+                                            <label
+                                                className="btn-outline"
+                                                htmlFor="file"
+                                            >
+                                                Load preview image
+                                            </label>
+                                            <input
+                                                style={{ display: "none" }}
+                                                type="file"
+                                                id="file"
+                                                name="file"
+                                                onChange={(e) =>
+                                                    loadImages(
+                                                        e.target.files,
+                                                        "preview"
+                                                    )
+                                                }
+                                            />
+                                        </div>
                                     </div>
                                     <div>
+                                        <label>Full Image</label>
                                         <label
                                             className="btn-outline"
                                             htmlFor="files"
@@ -224,13 +248,10 @@ const Creator = (props) => {
                                                 )
                                             }
                                         />
-                                    </div>
-                                    <div>
-                                        <label>Full Image</label>
                                         {imagesArray.map((img, index) => (
                                             <div
                                                 key={index}
-                                                className="fullimage"
+                                                className="oneliner"
                                             >
                                                 <input
                                                     key={index}
@@ -242,7 +263,7 @@ const Creator = (props) => {
                                                         handleImageSet(
                                                             e,
                                                             e.target.value,
-                                                            index
+                                                            img
                                                         )
                                                     }
                                                     value={img}
@@ -252,7 +273,7 @@ const Creator = (props) => {
                                                         handleImageSet(
                                                             e,
                                                             "delete",
-                                                            index
+                                                            img
                                                         )
                                                     }
                                                 >

@@ -5,16 +5,19 @@
         margin-top: 5.5em;
     }
     .name {
-        display: block;
+        display: inline-block;
         @include font-size(32, 72);
-        color: var(--gl);
+        color: var(--sub);
     }
     .img-wrap {
         display: block;
         width: 100%;
         min-height: 600px;
+        max-height: 110vh;
+        overflow: auto;
+        scroll-snap-align: start;
+        flex-shrink: 0;
         background-color: gray;
-        margin-top: 2em;
         img,
         source {
             opacity: 0;
@@ -23,6 +26,15 @@
         }
         @media (max-width: 767px) {
             min-height: 400px;
+        }
+    }
+    .image-carousel {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        .img-wrap {
+            width: 80%;
+            margin: 0px 1em;
         }
     }
     .stack {
@@ -34,6 +46,15 @@
             li:hover:before {
                 background-color: var(--sub);
             }
+        }
+    }
+    .liveurl {
+        display: inline-block;
+        margin-left: 1em;
+        font-size: 20px;
+        color: var(--sub);
+        &:hover {
+            border-bottom: 2px solid var(--sub);
         }
     }
 }
