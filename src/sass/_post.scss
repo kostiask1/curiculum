@@ -46,6 +46,13 @@
                 background-color: var(--sub);
             }
         }
+        @media (max-width: 767px) {
+            margin-top: 2em;
+            margin-left: 0;
+            ul {
+                margin-left: 3em;
+            }
+        }
     }
     .liveurl {
         display: inline-block;
