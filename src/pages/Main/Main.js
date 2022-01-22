@@ -92,7 +92,6 @@ const Main = () => {
                                 containerId="page"
                                 className="button"
                             >
-                                <div className="maskbtn maskbtn-arrow" />
                                 View works
                             </Link>
                         ) : null}
@@ -103,7 +102,6 @@ const Main = () => {
                             rel="noopener noreferrer"
                             download="Kanshyn CV"
                         >
-                            <div className="maskbtn maskbtn-load" />
                             My CV
                         </a>
                     </div>
@@ -208,7 +206,9 @@ const Main = () => {
                         ))}
                     </div>
                 </section>
-            ) : <p>Loading...</p>}
+            ) : (
+                <p>Loading...</p>
+            )}
             <Footer />
         </>
     )
