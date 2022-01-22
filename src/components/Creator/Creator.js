@@ -336,8 +336,8 @@ const Creator = (props) => {
                             </button>
                         </form>
                     </div>
-                    <div className="block">
-                        <h1>{title}</h1>
+                    <div className="post block fadeIn">
+                        <span className="name">{title}</span>
                         <p className="description">{description}</p>
                         <picture className="img-wrap">
                             <img src={image} alt={image} />

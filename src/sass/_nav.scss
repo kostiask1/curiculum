@@ -1,102 +1,114 @@
 .nav {
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  padding: 1em 0;
-  z-index: 9990;
-  background-color: var(--alphaMain);
-  backdrop-filter: blur(5px);
-  transition: background-color 0.4s linear;
-  will-change: background-color;
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    @media (max-width: 767px) {
-      align-items: start;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    padding: 1em 0;
+    z-index: 9990;
+    background-color: var(--alphaMain);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.4s linear;
+    will-change: background-color;
+    svg {
+        transition: fill 0.2s;
     }
-    a {
-      @include font-size(16, 36);
-      &.active {
-        color: var(--sub);
-      }
+    .button:hover {
+        svg {
+            fill: var(--sub);
+        }
     }
-    .navs {
-      display: inline-flex;
-      align-items: center;
-      transition: 0.6s all;
-      .ham {
-        margin: 5px 0px;
+    .container {
         display: flex;
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        span {
-          display: none;
-          width: 2em;
-          height: 0.1em;
-          margin: 0.17em 0;
-          transform-origin: 0 0;
-          background-color: var(--gl);
-          transition: all 0.4s ease;
-          @media (max-width: 767px) {
-            display: block;
-          }
+        @media (max-width: 767px) {
+            align-items: start;
         }
-      }
-      a {
-        margin-left: 33px;
-        @include font-size(16, 24);
-        &.active:after {
-          background-color: var(--sub);
-        }
-      }
-      @media (max-width: 767px) {
-        text-align: center;
-        min-height: 40px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--gl);
-        background-color: var(--main);
-        border-radius: 5px;
         a {
-          width: 0.8em;
-          height: 0;
-          opacity: 0;
-          visibility: hidden;
-          transition: 0.4s all, 0s opacity;
+            @include font-size(16, 36);
+            &.active {
+                color: var(--sub);
+            }
         }
-        .button {
-          display: none;
+        .navs {
+            display: inline-flex;
+            align-items: center;
+            transition: 0.6s all;
+            .ham {
+                margin: 2px 0px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                span {
+                    display: none;
+                    width: 2em;
+                    height: 0.1em;
+                    margin: 0.17em 0;
+                    transform-origin: 0 0;
+                    background-color: var(--gl);
+                    transition: all 0.4s ease;
+                    @media (max-width: 767px) {
+                        display: block;
+                    }
+                }
+            }
+            a {
+                margin-left: 33px;
+                @include font-size(16, 24);
+                &.active:after {
+                    background-color: var(--sub);
+                }
+            }
+            @media (max-width: 767px) {
+                position: absolute;
+                right: 1em;
+                top: -0.5em;
+                text-align: center;
+                min-height: 35px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid var(--gl);
+                background-color: var(--main);
+                border-radius: 5px;
+                a {
+                    width: 0.65em;
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: 0.4s all, 0s opacity;
+                }
+                .button {
+                    display: none;
+                }
+            }
+            &.active {
+                a {
+                    min-width: 4em;
+                    height: auto;
+                    opacity: 1;
+                    padding-bottom: 4px;
+                    padding-top: 4px;
+                    margin: 5px;
+                    margin-bottom: 8px;
+                    visibility: visible;
+                    transition: 0.4s all;
+                }
+                .ham {
+                    transform: translateX(0.6em);
+                    margin-top: 10px;
+                    span:nth-child(1) {
+                        transform: rotate(45deg) translate(-3px, 0px);
+                    }
+                    span:nth-child(2) {
+                        transform: scaleX(0);
+                    }
+                    span:nth-child(3) {
+                        transform: rotate(-45deg) translate(-5px, 1px);
+                    }
+                }
+            }
         }
-      }
-      &.active {
-        a {
-          width: 4em;
-          height: auto;
-          opacity: 1;
-          padding-bottom: 4px;
-          margin: 5px;
-          margin-bottom: 8px;
-          visibility: visible;
-          transition: 0.4s all;
-        }
-        .ham {
-          transform: translateX(0.6em);
-          margin-top: 10px;
-          span:nth-child(1) {
-            transform: rotate(45deg) translate(-3px, 0px);
-          }
-          span:nth-child(2) {
-            transform: scaleX(0);
-          }
-          span:nth-child(3) {
-            transform: rotate(-45deg) translate(-5px, 1px);
-          }
-        }
-      }
     }
-  }
 }

@@ -88,8 +88,10 @@
         }
     }
     .img-wrap {
+        background-color: transparent;
         img {
             width: 100%;
+            opacity: 1;
         }
     }
 }
