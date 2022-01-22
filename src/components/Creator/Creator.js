@@ -228,7 +228,7 @@ const Creator = (props) => {
                                         </div>
                                     </div>
                                     <div>
-                                        <label>Full Image</label>
+                                        <hr />
                                         <label
                                             className="btn-outline"
                                             htmlFor="files"
@@ -287,9 +287,10 @@ const Creator = (props) => {
                                                 handleImageSet(e, "add")
                                             }
                                         >
-                                            + изображение
+                                            + image
                                         </button>
                                     </div>
+                                    <hr />
                                     <div>
                                         <label>Item Order</label>
                                         <input
@@ -303,6 +304,20 @@ const Creator = (props) => {
                                         />
                                     </div>
 
+                                    <span
+                                        style={{
+                                            fontSize: "1.4em",
+                                            color: "var(--sub)",
+                                        }}
+                                    >
+                                        Project tech stack
+                                    </span>
+                                    <hr
+                                        style={{
+                                            marginBottom: 0,
+                                            borderColor: "var(--sub)",
+                                        }}
+                                    />
                                     <div className="technologies" key={stack}>
                                         {technologies.map((tech, index) => (
                                             <div key={index}>
@@ -331,7 +346,11 @@ const Creator = (props) => {
                             <button onClick={(e) => clearInputs(e)}>
                                 reset
                             </button>
-                            <button type="submit" onClick={(e) => newItem(e)}>
+                            <button
+                                className="submit"
+                                type="submit"
+                                onClick={(e) => newItem(e)}
+                            >
                                 Submit
                             </button>
                         </form>

@@ -87,11 +87,17 @@
             white-space: nowrap;
         }
     }
+    hr {
+        margin-bottom: 1em;
+    }
     .img-wrap {
-        background-color: transparent;
         img {
             width: 100%;
             opacity: 1;
         }
+    }
+    .submit {
+        margin-left: 1em;
+        background-color: var(--sub);
     }
 }
