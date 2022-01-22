@@ -1,82 +1,39 @@
 .post {
-  opacity: 0;
-  margin-top: 8em;
-  @media (max-width: 767px) {
-    margin-top: 5.5em;
-  }
-  .name {
-    display: block;
-    @include font-size(32, 72);
-    color: var(--gl);
-  }
-  .img-wrap {
-    display: block;
-    width: 100%;
-    min-height: 600px;
-    background-color: gray;
-    margin-top: 2em;
-    img,
-    source {
     opacity: 0;
-      width: 100%;
-      object-fit: contain;
-    }
+    margin-top: 8em;
     @media (max-width: 767px) {
-      min-height: 400px;
+        margin-top: 5.5em;
     }
-  }
-  .stack {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 10em;
-    padding-top: 1em;
-    border-top: 3px solid var(--gl);
-    span {
-      @include font-size(18, 56);
-      color: var(--gl);
-    }
-    ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      li {
-        position: relative;
-        padding: 0;
-        line-height: 2em;
-        border: unset;
-        @include font-size(18, 28);
+    .name {
+        display: block;
+        @include font-size(32, 72);
         color: var(--gl);
-        &:before {
-          content: "";
-          position: absolute;
-          display: block;
-          left: -1.3em;
-          top: 50%;
-          width: 0.7em;
-          height: 0.7em;
-          transform: translateY(-50%);
-          border-radius: 100%;
-          border: 2px solid var(--sub);
-          transition: 0.3s all;
-        }
-        &:hover {
-          cursor: pointer;
-          &:before {
-            background-color: var(--sub);
-          }
-        }
-      }
     }
-    @media (max-width: 767px) {
-      flex-direction: column;
-      margin-top: 4em;
-      ul {
-        margin-top: 1em;
-        margin-left: 2em;
-      }
+    .img-wrap {
+        display: block;
+        width: 100%;
+        min-height: 600px;
+        background-color: gray;
+        margin-top: 2em;
+        img,
+        source {
+            opacity: 0;
+            width: 100%;
+            object-fit: contain;
+        }
+        @media (max-width: 767px) {
+            min-height: 400px;
+        }
     }
-  }
+    .stack {
+        margin-top: 10em;
+        padding-top: 1em;
+        border-top: 3px solid var(--gl);
+        ul {
+            margin-left: 0;
+            li:hover:before {
+                background-color: var(--sub);
+            }
+        }
+    }
 }

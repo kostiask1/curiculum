@@ -1,0 +1,66 @@
+.knowledge {
+    margin-top: 4em;
+    $columns: 10;
+    $index: 0.1;
+    @mixin opacity {
+        $p-list: null;
+        @for $i from 1 through $columns {
+            .p-#{$i}:before {
+                background-color: rgba(var(--rawSub), $index * $i);
+                filter: saturate($index * 2 * $i);
+            }
+            $p-list: append($p-list, unquote(".p-#{$i}"), comma);
+        }
+    }
+
+    @include opacity;
+    h3 {
+        font-size: 2.4em;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+        small {
+            color: #efefef;
+            font-size: 0.5em;
+            border-bottom: 1px solid var(--sub);
+        }
+    }
+    .stack ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        li.button {
+            justify-content: start;
+            cursor: default;
+            &:before {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    p {
+        font-size: 1.4em;
+        line-height: 1.2;
+        margin-top: 1em;
+        font-weight: 300;
+        b {
+            font-weight: 500;
+            color: var(--sub);
+            &:before {
+                content: " ";
+                display: inline-block;
+                margin-left: 0.3em;
+            }
+            &:after {
+                content: " ";
+                display: inline-block;
+                margin-right: 0.3em;
+            }
+        }
+        &:before {
+            content: " ";
+            display: inline-block;
+            margin-left: 50px;
+        }
+    }
+}

@@ -1,37 +1,86 @@
 .creator {
-  .wrap {
-    margin: 0 auto;
-    margin-top: 7em;
-    width: 900px;
-  }
+    .wrap {
+        margin: 0 auto;
+        margin-top: 7em;
+        width: 900px;
+    }
 
-  .row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  .title {
-    margin-bottom: 3em;
-  }
-  input {
-    width: 100%;
-    padding: 12px 20px;
-    margin-bottom: 10px;
-  }
-  form {
-    width: 300px;
-  }
-  #page {
-    .cases {
-      margin-top: 0;
+    form {
+        margin-bottom: 4em;
     }
-    .case {
-      margin-top: 0;
-      flex-basis: 95%;
+
+    .row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
     }
-    .case-wrap {
-      justify-content: center;
+    .col {
+        div {
+            margin: 10px 0;
+        }
     }
-  }
+    .title {
+        margin-bottom: 1em;
+    }
+    label {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    input,
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+    }
+    form {
+        width: 300px;
+    }
+    #page {
+        .cases {
+            margin-top: 0;
+        }
+        .case {
+            margin-top: 0;
+            flex-basis: 95%;
+        }
+        .case-wrap {
+            justify-content: center;
+        }
+    }
+    .technologies {
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+            input {
+                width: auto;
+                margin-right: 8px;
+            }
+            label,
+            input {
+                margin-bottom: 12px;
+            }
+        }
+    }
+    .fullimage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input,
+        button {
+            display: inline-block;
+            height: 3em;
+            border-width: 1px;
+            font-size: 1em;
+            padding: 1em;
+            border-radius: 0px;
+        }
+    }
+    .img-wrap {
+        img {
+            width: 100%;
+        }
+    }
 }
