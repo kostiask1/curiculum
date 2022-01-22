@@ -6,8 +6,7 @@
         $p-list: null;
         @for $i from 1 through $columns {
             .p-#{$i}:before {
-                background-color: rgba(var(--rawSub), $index * $i);
-                filter: saturate($index * 2 * $i);
+                opacity: $index * $i;
             }
             $p-list: append($p-list, unquote(".p-#{$i}"), comma);
         }
@@ -33,6 +32,7 @@
             justify-content: start;
             cursor: default;
             &:before {
+                background-color: var(--sub);
                 width: 20px;
                 height: 20px;
             }

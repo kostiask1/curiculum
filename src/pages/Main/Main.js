@@ -133,7 +133,7 @@ const Main = () => {
                 <div className="knowledge">
                     <div className="container">
                         <h3>
-                            I have experience with&nbsp;
+                            I have experience with:&nbsp;
                             <small>
                                 (the less circle is transparent the stronger my
                                 skills are)
@@ -208,7 +208,7 @@ const Main = () => {
                         ))}
                     </div>
                 </section>
-            ) : null}
+            ) : <p>Loading...</p>}
             <Footer />
         </>
     )
