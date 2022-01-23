@@ -128,7 +128,7 @@ a {
         text-decoration: none;
     }
 }
-a.undelined {
+a.underlined {
     white-space: nowrap;
     &:after {
         content: "";
@@ -143,6 +143,7 @@ a.undelined {
         background-color: var(--gl);
         transition: 0.25s 0.1s transform;
     }
+    &.active,
     &:hover {
         &:after {
             transform: scaleX(1);

@@ -38,27 +38,37 @@ export default function Navigation() {
                             <span />
                             <span />
                         </div>
-                        {process.env.NODE_ENV === "development" ? (
-                            <NavLink to="/create">Create</NavLink>
-                        ) : null}
                         {location.pathname.includes("/post/") ? (
                             <>
-                                <RLink to="/">Main</RLink>
+                                <RLink className="underlined" to="/">
+                                    Main
+                                </RLink>
                                 {process.env.NODE_ENV === "development" ? (
-                                    <NavLink
-                                        to={
-                                            "/create/" +
-                                            location.pathname.split("/post/")[1]
-                                        }
-                                    >
-                                        Edit
-                                    </NavLink>
+                                    <>
+                                        <NavLink
+                                            className="underlined"
+                                            to={
+                                                "/create/" +
+                                                location.pathname.split(
+                                                    "/post/"
+                                                )[1]
+                                            }
+                                        >
+                                            Edit
+                                        </NavLink>
+                                        <NavLink
+                                            className="underlined"
+                                            to="/create"
+                                        >
+                                            Create
+                                        </NavLink>
+                                    </>
                                 ) : null}
                             </>
                         ) : (
                             <>
                                 <Link
-                                    className="undelined"
+                                    className="underlined"
                                     to="main"
                                     spy={true}
                                     smooth={true}
@@ -69,7 +79,7 @@ export default function Navigation() {
                                     Main
                                 </Link>
                                 <Link
-                                    className="undelined"
+                                    className="underlined"
                                     to="info"
                                     spy={true}
                                     smooth={true}
@@ -81,7 +91,7 @@ export default function Navigation() {
                                 </Link>
                                 {data && data.length !== 0 ? (
                                     <Link
-                                        className="undelined"
+                                        className="underlined"
                                         to="cases"
                                         spy={true}
                                         smooth={true}
@@ -101,7 +111,7 @@ export default function Navigation() {
                             target="_blank"
                         >
                             <svg
-                                fill="#eee"
+                                fill="var(--gl)"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 50 50"
                                 width="24px"

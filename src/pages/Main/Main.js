@@ -21,6 +21,7 @@ const Main = () => {
         []
     )
 
+
     return (
         <>
             <main id="main" className="fadeIn">
@@ -182,7 +183,7 @@ const Main = () => {
                             Also i was fixing bugs, resurrecting legacy code.
                         </p>
                         <p>
-                            Also i have developed <b>Browser Extension</b> for
+                            Also i have developed<b>Browser Extension</b>for
                             fast log in/out and clock in/out.
                         </p>
                         <p>
