@@ -9,7 +9,6 @@ const Main = () => {
     const { find, data } = useContext(cvContext)
     useEffect(() => {
         find()
-        Palette()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -20,7 +19,6 @@ const Main = () => {
                 : result,
         []
     )
-
 
     return (
         <>

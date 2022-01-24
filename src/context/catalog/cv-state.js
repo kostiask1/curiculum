@@ -57,6 +57,8 @@ export const CvState = ({ children }) => {
         }
     }
 
+    const login = () => {}
+
     const { data } = state
 
     return (

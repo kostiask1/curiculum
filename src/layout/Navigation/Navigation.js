@@ -38,12 +38,17 @@ export default function Navigation() {
                             <span />
                             <span />
                         </div>
+                        {!!sessionStorage.getItem("refreshToken") ? (
+                            <NavLink className="underlined" to="/create">
+                                Create
+                            </NavLink>
+                        ) : null}
                         {location.pathname.includes("/post/") ? (
                             <>
                                 <RLink className="underlined" to="/">
                                     Main
                                 </RLink>
-                                {process.env.NODE_ENV === "development" ? (
+                                {!!sessionStorage.getItem("refreshToken") ? (
                                     <>
                                         <NavLink
                                             className="underlined"
@@ -55,12 +60,6 @@ export default function Navigation() {
                                             }
                                         >
                                             Edit
-                                        </NavLink>
-                                        <NavLink
-                                            className="underlined"
-                                            to="/create"
-                                        >
-                                            Create
                                         </NavLink>
                                     </>
                                 ) : null}

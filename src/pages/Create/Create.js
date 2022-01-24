@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { app } from "../../base"
 import { cvContext } from "../../context/catalog/cv-context"
-import "../../sass/creator.scss"
+import "../../sass/create.scss"
 const db = app.firestore()
 
-const Creator = (props) => {
+const Create = (props) => {
     const { getPostById, data } = useContext(cvContext)
     const [title, setTitle] = useState("")
     const [link, setLink] = useState("")
@@ -72,6 +72,12 @@ const Creator = (props) => {
             order,
             link,
         }
+        if (
+            !data.title ||
+            !data.imagePreview ||
+            (data.imagesArray.length === 1 && data.imagesArray[0] === "")
+        )
+            return
         db.collection("All")
             .doc(`${data.id}`)
             .set(data)
@@ -148,7 +154,7 @@ const Creator = (props) => {
         }
     }
     return (
-        <div className="creator">
+        <div className="create">
             <div className="wrap">
                 <div className="row">
                     <div className="block">
@@ -368,4 +374,4 @@ const Creator = (props) => {
     )
 }
 
-export default Creator
+export default Create

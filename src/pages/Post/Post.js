@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react"
-import Palette from "../../components/Palette/Palette"
 import { cvContext } from "../../context/catalog/cv-context"
 import Footer from "../../layout/Footer/Footer"
 
@@ -8,7 +7,6 @@ const Post = (props) => {
 
     useEffect(() => {
         getPostById(props.params.post)
-        Palette()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

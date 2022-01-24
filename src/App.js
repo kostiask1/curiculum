@@ -1,22 +1,29 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Route, withRouter } from "react-router-dom"
 import { CSSTransition } from "react-transition-group"
-import Creator from "./components/Creator/Creator"
+import Create from "./pages/Create/Create"
+import Palette from "./components/Palette/Palette"
 import { CvState } from "./context/catalog/cv-state"
 import Navigation from "./layout/Navigation/Navigation"
+import Auth from "./pages/Auth/Auth"
 import Main from "./pages/Main/Main"
 import Post from "./pages/Post/Post"
 
 const routes = [
     { path: "/", Component: Main },
     { path: "/post/:post", Component: Post },
+    { path: "/auth", Component: Auth },
 ]
-if (process.env.NODE_ENV === "development") {
-    routes.push({ path: "/create", Component: Creator })
-    routes.push({ path: "/create/:post", Component: Creator })
+if (!!sessionStorage.getItem("refreshToken")) {
+    routes.push({ path: "/create", Component: Create })
+    routes.push({ path: "/create/:post", Component: Create })
 }
 
 function App() {
+    useEffect(() => {
+        Palette()
+    }, [])
+
     return (
         <>
             <CvState>
