@@ -5,11 +5,13 @@ const Auth = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const history = useHistory()
+    const API_KEY = process.env.REACT_APP_API_KEY
 
     const authIn = async (e) => {
         e.preventDefault()
         let url =
-            "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDZb6-vNve77Gp6h6-ECK_vDD9_yTfnqO0"
+            "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
+            API_KEY
         const credits = {
             email,
             password,
@@ -25,8 +27,10 @@ const Auth = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                sessionStorage.setItem("refreshToken", data.refreshToken)
-                history.push("/")
+                if (data.registered) {
+                    sessionStorage.setItem("refreshToken", data.refreshToken)
+                    history.push("/")
+                }
             })
     }
 
