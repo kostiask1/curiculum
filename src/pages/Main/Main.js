@@ -74,7 +74,7 @@ const Main = () => {
                             >
                                 <div className="mask" />
                                 <img
-                                    src="/images/drop.png"
+                                    src="https://firebasestorage.googleapis.com/v0/b/ciriculum-d98e2.appspot.com/o/CV%2Fdrop.png?alt=media&token=3b417589-d9d9-444d-8915-aef3135ef26b"
                                     alt=""
                                     className="drop"
                                 />

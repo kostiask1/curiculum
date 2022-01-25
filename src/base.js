@@ -1,4 +1,5 @@
-import firebase from "firebase"
+import firebase from "firebase/app"
+import "firebase/firestore"
 import "firebase/storage"
 
 const API_KEY = process.env.REACT_APP_API_KEY
