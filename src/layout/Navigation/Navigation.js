@@ -29,7 +29,7 @@ export default function Navigation() {
     return (
         <nav className="nav fadeIn">
             <div className="container">
-                <RLink to="/">Constantine</RLink>
+                <RLink to="/">Konstantine</RLink>
                 {(location.pathname.includes("/post/") && screenWidth > 768) ||
                 location.pathname === "/" ? (
                     <div className="navs" onClick={() => toggleMenu()}>
