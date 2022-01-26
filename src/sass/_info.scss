@@ -1,41 +1,56 @@
 .info {
-	position: relative;
-	z-index: 1;
-	.row {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		flex-direction: row;
-	}
-	.text {
-		flex-basis: 50%;
-		z-index: 9991;
-		h2,b {
-			font-weight: regular;
-			@include font-size(30,72);
-		}
-		p {
-			margin-top: 3em;
-			@include font-size(18,36);
-		}
-		@media (max-width: 767px) {
-			flex-basis: 100%;
-			p {margin-top: 1.5em;margin-bottom: 2em;}
-		}
-	}
-	.pic {
-		flex-basis: 40%;
-		width: 100%;
-		height: 100%;
-		@media (max-width: 767px) {
-			flex-basis: 100%;
-		}
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
-	}
+    position: relative;
+    z-index: 1;
+    .wrap {
+        height: 210vh;
+        width: 100%;
+        padding-bottom: 10%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .text,
+    .pic {
+        position: sticky;
+        @media (max-width: 767px) {
+            position: relative;
+        }
+    }
+    .text {
+        top: 25%;
+        flex-basis: 50%;
+        z-index: 9991;
+        h2,
+        b {
+            font-weight: regular;
+            @include font-size(30, 72);
+        }
+        p {
+            margin-top: 3em;
+            @include font-size(18, 36);
+        }
+        @media (max-width: 767px) {
+            flex-basis: 100%;
+            p {
+                margin-top: 1.5em;
+                margin-bottom: 2em;
+            }
+        }
+    }
+    .pic {
+        top: 15%;
+        flex-basis: 40%;
+        margin-top: 40vh;
+        width: 100%;
+        @media (max-width: 767px) {
+            flex-basis: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 }

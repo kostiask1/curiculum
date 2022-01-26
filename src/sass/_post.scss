@@ -17,25 +17,37 @@
         height: fit-content;
         max-height: 110vh;
         overflow: auto;
-        scroll-snap-align: start;
+        scrollbar-width: none;
         flex-shrink: 0;
         img,
         source {
+            pointer-events: none;
             opacity: 0;
             width: 100%;
             object-fit: contain;
         }
-        @media (max-width: 767px) {
-            min-height: 400px;
-        }
+    }
+    .hint {
+        display: inline-block;
+        margin-bottom: 1em;
+        color: yellow;
     }
     .image-carousel {
+        cursor: grab;
         display: flex;
         overflow-x: scroll;
-        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
         .img-wrap {
             width: 80%;
             margin: 0px 1em;
+        }
+        @media (max-width: 767px) {
+            scroll-snap-type: x mandatory;
+            .img-wrap {
+                width: 95%;
+                margin: 0px 0.5em;
+                scroll-snap-align: start;
+            }
         }
     }
     .stack {

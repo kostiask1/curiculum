@@ -1,14 +1,18 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext, useRef } from "react"
 import { cvContext } from "../../context/catalog/cv-context"
 import Footer from "../../layout/Footer/Footer"
+import useDraggableScroll from "use-draggable-scroll"
 
 const Post = (props) => {
     const { getPostById, data } = useContext(cvContext)
+    const ref = useRef(null)
 
     useEffect(() => {
         getPostById(props.params.post)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const { onMouseDown } = useDraggableScroll(ref, { direction: "horizontal" })
 
     if (data && data.length !== 0) {
         const { imagesArray, title, description, stack, link } = data
@@ -24,12 +28,20 @@ const Post = (props) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                View Live ->
+                                View Live -&#62;
                             </a>
                         ) : null}
 
                         <div className="description">{description}</div>
+                        {window.innerWidth > 767 && imagesArray.length > 1 ? (
+                            <span className="hint">
+                                To scroll slides horizontally grab with mouse /
+                                hold shift and scroll / use touchpad
+                            </span>
+                        ) : null}
                         <div
+                            ref={ref}
+                            onMouseDown={(e) => onMouseDown(e)}
                             className={
                                 imagesArray.length > 1 ? "image-carousel" : null
                             }

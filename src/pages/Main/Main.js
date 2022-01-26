@@ -108,7 +108,7 @@ const Main = () => {
             </main>
             <section id="info" className="info">
                 <div className="container">
-                    <div className="row">
+                    <div className="wrap">
                         <div className="text">
                             <h2>Hi!</h2>
                             <b>My name is Konstantine</b>

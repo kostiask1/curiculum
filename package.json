@@ -11,7 +11,8 @@
         "react-scripts": "^5.0.0",
         "react-scroll": "^1.8.2",
         "react-transition-group": "^4.4.2",
-        "sass": "^1.34.1"
+        "sass": "^1.34.1",
+        "use-draggable-scroll": "^0.1.0"
     },
     "scripts": {
         "watch": "react-scripts start --host 0.0.0.0",
