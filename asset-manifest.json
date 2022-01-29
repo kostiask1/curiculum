@@ -1,13 +1,25 @@
 {
   "files": {
-    "main.css": "/curiculum/static/css/main.deae0cd3.css",
-    "main.js": "/curiculum/static/js/main.92497191.js",
+    "main.css": "/curiculum/static/css/main.51a2741e.css",
+    "main.js": "/curiculum/static/js/main.e7a29a64.js",
+    "static/css/434.79b530c7.chunk.css": "/curiculum/static/css/434.79b530c7.chunk.css",
+    "static/js/434.695623a7.chunk.js": "/curiculum/static/js/434.695623a7.chunk.js",
+    "static/js/506.9813c380.chunk.js": "/curiculum/static/js/506.9813c380.chunk.js",
+    "static/css/420.a05dbd66.chunk.css": "/curiculum/static/css/420.a05dbd66.chunk.css",
+    "static/js/420.cbc8547d.chunk.js": "/curiculum/static/js/420.cbc8547d.chunk.js",
+    "static/js/350.7fda29eb.chunk.js": "/curiculum/static/js/350.7fda29eb.chunk.js",
     "index.html": "/curiculum/index.html",
-    "main.deae0cd3.css.map": "/curiculum/static/css/main.deae0cd3.css.map",
-    "main.92497191.js.map": "/curiculum/static/js/main.92497191.js.map"
+    "main.51a2741e.css.map": "/curiculum/static/css/main.51a2741e.css.map",
+    "main.e7a29a64.js.map": "/curiculum/static/js/main.e7a29a64.js.map",
+    "434.79b530c7.chunk.css.map": "/curiculum/static/css/434.79b530c7.chunk.css.map",
+    "434.695623a7.chunk.js.map": "/curiculum/static/js/434.695623a7.chunk.js.map",
+    "506.9813c380.chunk.js.map": "/curiculum/static/js/506.9813c380.chunk.js.map",
+    "420.a05dbd66.chunk.css.map": "/curiculum/static/css/420.a05dbd66.chunk.css.map",
+    "420.cbc8547d.chunk.js.map": "/curiculum/static/js/420.cbc8547d.chunk.js.map",
+    "350.7fda29eb.chunk.js.map": "/curiculum/static/js/350.7fda29eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.deae0cd3.css",
-    "static/js/main.92497191.js"
+    "static/css/main.51a2741e.css",
+    "static/js/main.e7a29a64.js"
   ]
 }
