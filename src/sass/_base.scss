@@ -44,8 +44,15 @@ body {
     }
 }
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    width: 12px;
+    background: var(--alphaMain);
+}
+::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: var(--sub);
 }
 .container {
     margin: 0 auto;

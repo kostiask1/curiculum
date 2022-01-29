@@ -19,6 +19,10 @@
         overflow: auto;
         scrollbar-width: none;
         flex-shrink: 0;
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 0;
+        }
         img,
         source {
             pointer-events: none;
@@ -37,6 +41,12 @@
         display: flex;
         overflow-x: scroll;
         scrollbar-width: none;
+        scrollbar-color: transparent transparent;
+        &::-webkit-scrollbar {
+            &-thumb {
+                background-color: transparent;
+            }
+        }
         .img-wrap {
             width: 80%;
             margin: 0px 1em;

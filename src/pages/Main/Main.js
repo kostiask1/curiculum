@@ -150,7 +150,9 @@ const Main = () => {
                                 <li className="button p-8">JS</li>
                                 <li className="button p-8">React</li>
                                 <li className="button p-8">jQuery</li>
-                                <li className="button p-8">REST API</li>
+                                <li className="button p-8">
+                                    REST API requests (CRUD)
+                                </li>
                                 <li className="button p-8">Bootstrap</li>
                                 <li className="button p-7">Laravel blades</li>
                                 <li className="button p-5">Next.js</li>
