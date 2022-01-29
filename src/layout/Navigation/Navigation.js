@@ -30,7 +30,7 @@ export default function Navigation() {
         <nav className="nav fadeIn">
             <div className="container">
                 <RLink to="/">Konstantine</RLink>
-                {(location.pathname.includes("/post/") && screenWidth > 768) ||
+                {location.pathname.includes("/post/") ||
                 location.pathname === "/" ? (
                     <div className="navs" onClick={() => toggleMenu()}>
                         <div className="ham">
@@ -45,9 +45,6 @@ export default function Navigation() {
                         ) : null}
                         {location.pathname.includes("/post/") ? (
                             <>
-                                <RLink className="underlined" to="/">
-                                    Main
-                                </RLink>
                                 {!!sessionStorage.getItem("refreshToken") ? (
                                     <>
                                         <NavLink
@@ -63,6 +60,9 @@ export default function Navigation() {
                                         </NavLink>
                                     </>
                                 ) : null}
+                                <RLink className="underlined" to="/">
+                                    Main
+                                </RLink>
                             </>
                         ) : (
                             <>

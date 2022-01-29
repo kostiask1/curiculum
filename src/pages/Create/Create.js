@@ -31,7 +31,7 @@ const Create = (props) => {
     ]
 
     useEffect(() => {
-        getPostById(props.params.post)
+        if (props.params.post) getPostById(props.params.post)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -69,7 +69,7 @@ const Create = (props) => {
             imagePreview: image,
             stack,
             id,
-            order,
+            order: +order,
             link,
         }
         if (
@@ -302,10 +302,10 @@ const Create = (props) => {
                                         <input
                                             type="number"
                                             name="order"
-                                            defaultValue={order}
+                                            value={+order}
                                             placeholder="Item order"
                                             onChange={(e) =>
-                                                setOrder(e.target.value)
+                                                setOrder(+e.target.value)
                                             }
                                         />
                                     </div>
